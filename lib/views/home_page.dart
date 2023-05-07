@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/views/details_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
@@ -18,7 +19,7 @@ class _HomePageState extends State<HomePage> {
           children: const [
             Icon(
               Icons.location_on,
-              color: Colors.green,
+              color: Colors.deepPurple,
             ),
             Text(
               "Kapodra, SURAT",
@@ -35,7 +36,7 @@ class _HomePageState extends State<HomePage> {
             width: 40,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              color: Colors.green,
+              color: Colors.deepPurple,
             ),
             child: IconButton(
               onPressed: () {},
@@ -57,7 +58,7 @@ class _HomePageState extends State<HomePage> {
                       "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"),
                   fit: BoxFit.cover,
                 ),
-                color: Colors.green,
+                color: Colors.deepPurple,
               ),
             ),
           ),
@@ -72,7 +73,7 @@ class _HomePageState extends State<HomePage> {
               style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
-                  color: Colors.green),
+                  color: Colors.deepPurple),
             ),
           ),
           const Padding(
@@ -92,7 +93,7 @@ class _HomePageState extends State<HomePage> {
               height: 50,
               width: double.infinity,
               decoration: BoxDecoration(
-                color: Colors.green.shade50,
+                color: Colors.deepPurple.shade50,
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Row(
@@ -102,7 +103,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   const Icon(
                     Icons.search,
-                    color: Colors.green,
+                    color: Colors.deepPurple,
                     size: 30,
                   ),
                   Text(
@@ -118,7 +119,7 @@ class _HomePageState extends State<HomePage> {
                     width: 40,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: Colors.green,
+                      color: Colors.deepPurple,
                     ),
                     child: const Icon(
                       Icons.filter_list,
@@ -151,8 +152,25 @@ class _HomePageState extends State<HomePage> {
               shrinkWrap: false,
               childAspectRatio: 0.75,
               children: [
-                itemCountainer(
-                    image: "assets/images/1.png", name: "Pizza", price: "780"),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const DetailPage(
+                          price: 'price',
+                          image: 'image',
+                          name: 'name',
+                        ),
+                      ),
+                    );
+                  },
+                  child: itemCountainer(
+                    image: "assets/images/1.png",
+                    name: "Pizza",
+                    price: "780",
+                  ),
+                ),
                 itemCountainer(
                     image: "assets/images/2.png", name: "Burger", price: "120"),
                 itemCountainer(
@@ -178,13 +196,13 @@ class _HomePageState extends State<HomePage> {
         width: 180,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
-          color: Colors.green.shade50,
+          color: Colors.deepPurple.shade50,
         ),
         child: Column(
           children: [
             CircleAvatar(
               radius: 60,
-              backgroundColor: Colors.green.shade50,
+              backgroundColor: Colors.deepPurple.shade50,
               backgroundImage: AssetImage(
                 image,
               ),
@@ -198,7 +216,7 @@ class _HomePageState extends State<HomePage> {
                     fontWeight: FontWeight.bold),
               ),
               trailing: Text(
-                price,
+                "₹ $price",
                 style: GoogleFonts.poppins(
                     color: Colors.black,
                     fontSize: 20,
@@ -215,7 +233,7 @@ class _HomePageState extends State<HomePage> {
                     width: 50,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: Colors.green),
+                        color: Colors.deepPurple),
                     child: IconButton(
                       onPressed: () {},
                       icon: const Icon(
@@ -233,7 +251,7 @@ class _HomePageState extends State<HomePage> {
                     width: 50,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: Colors.green),
+                        color: Colors.deepPurple),
                     child: IconButton(
                       onPressed: () {},
                       icon: const Icon(
@@ -266,7 +284,7 @@ class _HomePageState extends State<HomePage> {
               ),
               fit: BoxFit.cover,
             ),
-            color: Colors.green.shade50,
+            color: Colors.deepPurple.shade50,
             borderRadius: BorderRadius.circular(10),
           ),
         ),
